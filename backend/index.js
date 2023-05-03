@@ -3,6 +3,7 @@
 import express  from "express"
 import dotenv from "dotenv"
 import conectarDB from "./config/db.js"
+import clienteRoutes from "./routes/clienteRoutes.js"
 
 
 const app = express()
@@ -13,9 +14,7 @@ conectarDB()
 
 console.log(process.env.MONGO_URI)
 
-app.use("/", (req, res) =>{
-    res.send("Hola mundo xxx")
-})
+app.use("/api/clientes", clienteRoutes)
 
 app.listen(PORT, ()=> {
     console.log(`Servidor corriendo por el puerto: ${PORT}`)
