@@ -2,61 +2,61 @@ import mongoose from "mongoose";
 
 
 const clienteSchema = mongoose.Schema({
-    cedula_cliente: {
+    cedula: {
         type: String,
         required: true,
         trim: true
     },
-    nombre_cliente: {
+    nombre: {
         type: String,
         required: true,
         trim: true
     },
-    apellido_cliente: {
+    apellido: {
         type: String,
         required: true,
         trim: true
     },
-    email_cliente: {
+    email: {
         type: String,
         required: true,
         unique: true,
         trim: true
     },
-    password_cliente: {
+    password: {
         type: String,
         required: true,
     },
-    telefono_cliente: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    direccion_cliente: {
+    telefono: {
         type: String,
         required: true,
         trim: true
     },
-    camara_comercio_cliente: {
-        type: String,
-        trim: true
-    },
-    nit_rut_cliente: {
+    direccion: {
         type: String,
         required: true,
         trim: true
     },
-    departamento_cliente: {
+    camara_comercio: {
+        type: String,
+        trim: true
+    },
+    nit_rut: {
         type: String,
         required: true,
         trim: true
     },
-    ciudad_cliente: {
+    departamento: {
         type: String,
         required: true,
         trim: true
     },
-    estado_cliente: {
+    ciudad: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    estado: {
         type: String,
         trim: true
     },
