@@ -62,11 +62,12 @@ const clienteSchema = mongoose.Schema({
         type: String,
         trim: true
     },
-    // rol_cliente: {
-    //     type: String,
-    //     required: true,
-    //     trim: true
-    // },
+    role: {
+        type: String,
+        value: "user",
+        required: true,
+        trim: true
+    },
     token: {
         type: String,
         default: generarId(),

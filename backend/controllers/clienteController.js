@@ -26,6 +26,62 @@ const registrar = async (req, res) =>{
     }
 }
 
+
+const editar = async (req, res) => {
+    const { cedula,
+        nombre,
+        apellido,
+        email,
+        password,
+        direccion,
+        camara_comercio,
+        nit_rut,
+        departamento,
+        ciudad,
+        estado,
+        role,
+     } = req.body;
+
+    const existeUsuario = await Cliente.findOne({ email })
+
+    if(!existeUsuario){
+        res.json({"msg": "No existe usuario"})
+    }
+
+    try {
+        // const cliente = new Cliente(req.body);
+        // const clienteEditar = await cliente.updateOne({nombre});
+        existeUsuario.nombre = nombre,
+        existeUsuario.apellido = apellido,
+        existeUsuario.email = email,
+        existeUsuario.password = password,
+        existeUsuario.direccion = direccion,
+        existeUsuario.camara_comercio = camara_comercio,
+        existeUsuario.nit_rut = nit_rut,
+        existeUsuario.departamento = departamento,
+        existeUsuario.ciudad = ciudad,
+        existeUsuario.estado = estado,
+        existeUsuario.role = role,
+        await existeUsuario.updateOne({nombre,
+            apellido,
+            email,
+            password,
+            direccion,
+            camara_comercio,
+            nit_rut,
+            departamento,
+            ciudad,
+            estado,
+            role,})
+        res.json({msg: "Usuario actualizadoo....."})
+        console.log(existeUsuario)
+    } catch (error) {
+        console.log(error)
+    }
+
+
+}
+
 const perfil = (req, res) => {
     
     const { cliente } = req;
@@ -142,5 +198,6 @@ export {
     perfil,
     olvidePassword,
     comprobarToken,
-    nuevoPassword
+    nuevoPassword,
+    editar
 }
